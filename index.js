@@ -14,8 +14,8 @@ const loadCoffee = () => {
     },
   })
     .then((data) => data.json())
-    .then((body) => getPhotos (body))
-    .then( hideCard )
+    .then((body) => getPhotos(body))
+    .then(hideCard)
     .catch((error) => console.error(error))
 }
 
@@ -26,20 +26,20 @@ const loadProgramming = () => {
     },
   })
     .then((data) => data.json())
-    .then((body) => getPhotos (body))
-    .then( hideCard )
+    .then((body) => getPhotos(body))
+    .then(hideCard)
     .catch((error) => console.error(error))
 }
 
-function getPhotos (body) {
+function getPhotos(body) {
   console.log(body) // sorry continue :-D :D
   const cardImgs = document.querySelector(".main-cards")
   // cardImgs.forEach((img, i) => (img.src = body.photos[i].src.landscape))
-  const { photos} = body // deconstructing, I am extragcting phots property from body object 
-  
-  console.log(photos); // I am ckecking here 
+  const { photos, id } = body // deconstructing, I am extragcting phots property from body object
+
+  console.log(photos) // I am ckecking here
   cards = ""
-  photos.forEach( photo => {
+  photos.forEach((photo) => {
     cards += `
       <div class="col-md-4">
         <div class="card mb-4 shadow-sm">
@@ -68,7 +68,7 @@ function getPhotos (body) {
                   Hide
                 </button>
               </div>
-              <small class="text-muted">9 mins</small>
+              <small class="text-muted">${photo.id}</small>
             </div>
           </div>
         </div>
@@ -79,17 +79,16 @@ function getPhotos (body) {
 }
 
 function hideCard() {
-  
   const btnList = document.querySelectorAll(".btn-hide")
   const card = document.querySelectorAll(".col-md-4")
-  
-  console.log(btnList);
-  console.log(card);
-  
-  btnList.forEach( (btn, i) =>
-    btn.addEventListener( "click", () => {
+
+  console.log(btnList)
+  console.log(card)
+
+  btnList.forEach((btn, i) =>
+    btn.addEventListener("click", () => {
       // console.log(card[i]);
-        card[i].classList.add("d-none")
+      card[i].classList.add("d-none")
     })
   )
 }
