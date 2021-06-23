@@ -20,7 +20,10 @@ const loadCoffee = () => {
 }
 
 const loadProgramming = () => {
-  fetch("https://api.pexels.com/v1/search?query=programming", {
+  const searchField = document.querySelector("#search-input")
+
+  // let userQuery = searchField.value
+  fetch(`https://api.pexels.com/v1/search?query=${searchField.value}`, {
     headers: {
       Authorization: "563492ad6f917000010000016c4555e8c26d439eae2bb113c225e0e5",
     },
@@ -35,7 +38,7 @@ function getPhotos(body) {
   console.log(body) // sorry continue :-D :D
   const cardImgs = document.querySelector(".main-cards")
   // cardImgs.forEach((img, i) => (img.src = body.photos[i].src.landscape))
-  const { photos, id } = body // deconstructing, I am extragcting phots property from body object
+  const { photos } = body // deconstructing, I am extragcting phots property from body object
 
   console.log(photos) // I am ckecking here
   cards = ""

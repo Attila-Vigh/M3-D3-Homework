@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -26,7 +25,7 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <header>
@@ -101,15 +100,30 @@
             them in a cool way!
           </p>
           <p>
-            <a href="#" id="load-images-button" class="btn btn-primary my-2">Load Images</a>
-            <a href="#" id="load-secondary-button" class="btn btn-secondary my-2">Load Secondary Images</a>
+            <a href="#" id="load-images-button" class="btn btn-primary my-2"
+              >Load Images</a
+            >
+            <div class="d-flex">
+            <input
+              id="search-input"
+              class="form-control"
+              type="text"
+              placeholder="Search"
+            />
+            <a
+              href="#"
+              id="load-secondary-button"
+              class="btn btn-secondary"
+              >Search</a
+            >
+          </div>
           </p>
         </div>
       </section>
 
       <div class="album py-5 bg-light">
         <div class="container">
-            <div class="main-cards row"></div>
+          <div class="main-cards row"></div>
         </div>
       </div>
     </main>
