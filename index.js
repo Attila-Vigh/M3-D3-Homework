@@ -15,6 +15,7 @@ const loadCoffee = () => {
   })
     .then((data) => data.json())
     .then((body) => getPhotos (body))
+    .then( hideCard )
     .catch((error) => console.error(error))
 }
 
@@ -26,6 +27,7 @@ const loadProgramming = () => {
   })
     .then((data) => data.json())
     .then((body) => getPhotos (body))
+    .then( hideCard )
     .catch((error) => console.error(error))
 }
 
@@ -61,7 +63,7 @@ function getPhotos (body) {
                 </button>
                 <button
                   type="button"
-                  class="btn btn-sm btn-outline-secondary"
+                  class="btn btn-sm btn-outline-secondary btn-hide"
                 >
                   Hide
                 </button>
@@ -71,25 +73,23 @@ function getPhotos (body) {
           </div>
         </div>
       </div>
-    
-    
-    
     `
-
   })
-  console.log(cards);
-  console.log(cardImgs);
-
   cardImgs.innerHTML = cards
-
-//   `
 }
 
-const btnList = document.querySelectorAll(".btn-hide")
-
-btnList.forEach( btn =>
-  btn.addEventListener( "click", ( event ) => {
-      console.log( event ) ;
-  })
-
-)
+function hideCard() {
+  
+  const btnList = document.querySelectorAll(".btn-hide")
+  const card = document.querySelectorAll(".col-md-4")
+  
+  console.log(btnList);
+  console.log(card);
+  
+  btnList.forEach( (btn, i) =>
+    btn.addEventListener( "click", () => {
+      // console.log(card[i]);
+        card[i].classList.add("d-none")
+    })
+  )
+}
