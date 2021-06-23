@@ -20,10 +20,10 @@ const loadCoffee = () => {
 }
 
 const loadProgramming = () => {
-  const searchField = document.querySelector("#search-input")
+  const userQuery = document.querySelector("#search-input")
 
   // let userQuery = searchField.value
-  fetch(`https://api.pexels.com/v1/search?query=${searchField.value}`, {
+  fetch(`https://api.pexels.com/v1/search?query=${userQuery.value}`, {
     headers: {
       Authorization: "563492ad6f917000010000016c4555e8c26d439eae2bb113c225e0e5",
     },
@@ -79,6 +79,8 @@ function getPhotos(body) {
     `
   })
   cardImgs.innerHTML = cards
+
+  document.querySelector(".alert").innerHTML = `Photos ${photos.length}`
 }
 
 function hideCard() {
