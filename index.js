@@ -14,11 +14,7 @@ const loadCoffee = () => {
     },
   })
     .then((data) => data.json())
-    .then((body) => {
-      console.log(body) // sorry continue :-D :D
-      const cardImgs = document.querySelectorAll(".card img")
-      cardImgs.forEach((img, i) => (img.src = body.photos[i].src.landscape))
-    })
+    .then((body) => getPhotos (body))
     .catch((error) => console.error(error))
 }
 
@@ -29,10 +25,12 @@ const loadProgramming = () => {
     },
   })
     .then((data) => data.json())
-    .then((body) => {
-      console.log(body) // sorry continue :-D :D
-      const cardImgs = document.querySelectorAll(".card img")
-      cardImgs.forEach((img, i) => (img.src = body.photos[i].src.landscape))
-    })
+    .then((body) => getPhotos (body))
     .catch((error) => console.error(error))
+}
+
+function getPhotos (body) {
+  console.log(body) // sorry continue :-D :D
+  const cardImgs = document.querySelectorAll(".card img")
+  cardImgs.forEach((img, i) => (img.src = body.photos[i].src.landscape))
 }
