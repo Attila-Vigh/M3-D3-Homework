@@ -31,6 +31,65 @@ const loadProgramming = () => {
 
 function getPhotos (body) {
   console.log(body) // sorry continue :-D :D
-  const cardImgs = document.querySelectorAll(".card img")
-  cardImgs.forEach((img, i) => (img.src = body.photos[i].src.landscape))
+  const cardImgs = document.querySelector(".main-cards")
+  // cardImgs.forEach((img, i) => (img.src = body.photos[i].src.landscape))
+  const { photos} = body // deconstructing, I am extragcting phots property from body object 
+  
+  console.log(photos); // I am ckecking here 
+  cards = ""
+  photos.forEach( photo => {
+    cards += `
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src=${photo.src.landscape} alt="">
+
+          <div class="card-body">
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+            <div
+              class="d-flex justify-content-between align-items-center"
+            >
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary"
+                >
+                  View
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary"
+                >
+                  Hide
+                </button>
+              </div>
+              <small class="text-muted">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+    `
+
+  })
+  console.log(cards);
+  console.log(cardImgs);
+
+  cardImgs.innerHTML = cards
+
+//   `
 }
+
+const btnList = document.querySelectorAll(".btn-hide")
+
+btnList.forEach( btn =>
+  btn.addEventListener( "click", ( event ) => {
+      console.log( event ) ;
+  })
+
+)
